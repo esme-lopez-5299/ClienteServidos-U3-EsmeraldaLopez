@@ -1,0 +1,37 @@
+﻿﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script>
+        var ws = new WebSocket("ws://localhost:1000/unidad3");
+
+        ws.onopen = function () {
+            alert("Se ha conectado.");
+        };
+
+        ws.onmessage = function (res) {
+            alert(res.data);
+        };
+
+        function enviarMensaje() {
+            var txt = document.getElementById("txtMensaje");
+            ws.send(txt.value);
+            txt.value = "";
+            txt.focus();
+        }
+    </script>
+</head>
+<body>
+    <h1>Ejemplo de Cliente Websocket</h1>
+
+    <form>
+        <label>Mensaje:</label>
+        <input id="txtMensaje" type="text" />
+        <input type="button" value="Enviar" onclick="enviarMensaje()" />
+    </form>
+</body>
+</html>

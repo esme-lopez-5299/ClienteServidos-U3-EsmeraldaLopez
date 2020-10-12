@@ -20,9 +20,11 @@ namespace WebSocket1
     /// </summary>
     public partial class MainWindow : Window
     {
+        WebServer server = new WebServer();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = server;
         }
     }
 }

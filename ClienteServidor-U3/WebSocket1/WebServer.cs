@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,34 +11,38 @@ using System.Windows.Threading;
 
 namespace WebSocket1
 {
-   public class WebServer
+    public class WebServer
     {
         HttpListener listener = new HttpListener();
         Dispatcher current;
 
         public ObservableCollection<string> Mensajes { get; set; } = new ObservableCollection<string>();
 
-
         public WebServer()
         {
-            listener.Prefixes.Add("http://localhost:8080/unidad3/");
+            current = Dispatcher.CurrentDispatcher;
+            listener.Prefixes.Add("http://localhost:1000/unidad3/");
             listener.Start();
             listener.BeginGetContext(GetContext, null);
         }
 
         private async void GetContext(IAsyncResult ar)
+        
         {
             var context = listener.EndGetContext(ar);
             listener.BeginGetContext(GetContext, null);
 
-            if(context.Request.IsWebSocketRequest)
+            if (context.Request.IsWebSocketRequest)
             {
-                var socket = await context.AcceptWebSocketAsync(null);
-                if(socket.WebSocket.State==System.Net.WebSockets.WebSocketState.Open)
+                var socketContext = await context.AcceptWebSocketAsync(null);
+
+                if (socketContext.WebSocket.State == WebSocketState.Open)
                 {
-                    string mensaje = "Conexion aceptada";
+                    string mensaje = "Conexión aceptada.";
                     var buffer = Encoding.UTF8.GetBytes(mensaje);
-                    await socket.WebSocket.SendAsync(new ArraySegment<byte>(buffer), System.Net.WebSockets.WebSocketMessageType.Text, true, CancellationToken.None);
+                    await socketContext.WebSocket.SendAsync(new ArraySegment<byte>(buffer), System.Net.WebSockets.WebSocketMessageType.Text, true, CancellationToken.None);
+
+                    Recibir(socketContext.WebSocket);
                 }
             }
             else
@@ -48,5 +53,34 @@ namespace WebSocket1
         }
 
 
+        public async void Recibir(WebSocket socket)
+        {
+            try
+            {
+                var buffer = new byte[1024];
+                var result = await socket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+
+
+                var mensaje = Encoding.UTF8.GetString(buffer, 0, result.Count);
+
+                current.Invoke(new Action(() =>
+                {
+                    Mensajes.Add(mensaje);
+                }));
+
+
+                mensaje = "Mensaje recibido.";
+                buffer = Encoding.UTF8.GetBytes(mensaje);
+                await socket.SendAsync(new ArraySegment<byte>(buffer), System.Net.WebSockets.WebSocketMessageType.Text, true, CancellationToken.None);
+
+                Recibir(socket);
+            }
+            catch (WebSocketException)
+            {
+
+                
+            }
+            
+        }
     }
 }
