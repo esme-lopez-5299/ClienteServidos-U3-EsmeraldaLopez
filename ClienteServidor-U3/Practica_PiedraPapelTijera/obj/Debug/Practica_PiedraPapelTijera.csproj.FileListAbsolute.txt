@@ -1,0 +1,15 @@
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\bin\Debug\Practica_PiedraPapelTijera.exe.config
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\bin\Debug\Practica_PiedraPapelTijera.exe
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\bin\Debug\Practica_PiedraPapelTijera.pdb
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera.csprojAssemblyReference.cache
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\MainWindow.g.cs
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\App.g.cs
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera_MarkupCompile.cache
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera_MarkupCompile.lref
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\MainWindow.baml
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera.g.resources
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera.Properties.Resources.resources
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera.csproj.GenerateResource.cache
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera.csproj.CoreCompileInputs.cache
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera.exe
+C:\Users\esme_\source\repos\Aplicaciones-ClienteServidor-U3\ClienteServidor-U3\Practica_PiedraPapelTijera\obj\Debug\Practica_PiedraPapelTijera.pdb

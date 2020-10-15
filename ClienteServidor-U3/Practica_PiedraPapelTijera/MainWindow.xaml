@@ -1,0 +1,57 @@
+﻿<Window x:Class="Practica_PiedraPapelTijera.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practica_PiedraPapelTijera"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="30">
+        <Label>Nombre:</Label>
+        <TextBox Text="Jugador"></TextBox>
+        <GroupBox Margin="10" Padding="10" Header="¿Qué deseas hacer?">
+            <StackPanel>
+                <RadioButton x:Name="rdbCrear" Content="Crear partida"></RadioButton>
+                <RadioButton Name="rdbUnirse" Content="Unirse a una partida"></RadioButton>
+                <WrapPanel  Name="ipAdversario">
+                    <WrapPanel.Style>
+                        <Style>
+                            <Setter Property="WrapPanel.Visibility" Value="Collapsed"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=rdbUnirse, Path=IsChecked}" Value="true">
+                                    <Setter Property="WrapPanel.Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </WrapPanel.Style>
+                    <TextBlock >IP del adversario</TextBlock>
+                    <TextBox x:Name="txtIp" Margin="10,0,0,0" Width="300"></TextBox>
+                </WrapPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <Button  Name="btnIniciar" HorizontalAlignment="Center" Content="Iniciar">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=rdbCrear, Path=IsChecked}" Value="True">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=rdbUnirse, Path=IsChecked}" Value="True">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                        </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=rdbUnirse, Path=IsChecked}" Value="True"></Condition>
+                                <Condition Binding="{Binding ElementName=txtIp, Path=Text}" Value=""></Condition>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="False"></Setter>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        
+    </StackPanel>
+</Window>
